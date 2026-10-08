@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela Javiel | Início</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0c10;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --card-bg: #15141c;
+            --border-gold: rgba(212, 175, 55, 0.35);
+            --text-main: #ffffff;
+            --text-muted: #a8a8b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* AURA DE FUNDO DOURADA */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, rgba(11, 12, 16, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* CABEÇALHO GLOBAL */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(11, 12, 16, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 54px; /* Logótipo maior e mais destacado */
+            object-fit: contain;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .site-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+
+        .site-nav a:hover, .site-nav a.active {
+            color: var(--gold);
+        }
+
+        /* CONTAINER HERO ORIGINAL */
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 130px 20px 60px 20px;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* BOLINHAS DE TOPO */
+        .top-dots {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 30px;
+        }
+
+        .top-dots span {
+            width: 10px;
+            height: 10px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* TIPOGRAFIA CENTRAL */
+        .hero-greeting {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .hero-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 25px;
+        }
+
+        /* PÍLULA / BOTÃO DE ESTRATEGISTA DIGITAL */
+        .role-pill {
+            background-color: var(--gold);
+            color: #0b0c10;
+            padding: 8px 28px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 40px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* LOGÓTIPOS DESTAQUE DA IMAGEM ORIGINAL */
+        .brands-cluster {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .brand-logo {
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+        }
+
+        .brand-logo.kiwify-large {
+            height: 42px;
+        }
+
+        /* ÁREA INTERMEDIÁRIA COM ÍCONE DE DEDO */
+        .middle-visual-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .interactive-finger {
+            width: 60px;
+            height: auto;
+            animation: floatFinger 3s ease-in-out infinite;
+        }
+
+        @keyframes floatFinger {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* TÍTULO PORTFOLIO 2026 */
+        .portfolio-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 25px;
+        }
+
+        /* PÍLULA DO ANO 2026 */
+        .year-badge {
+            background: transparent;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 6px 30px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+        }
+
+        /* FLECHA ESTILO CARROSSEL PARA A PÁGINA "SOBRE" */
+        .carousel-next-btn {
+            position: fixed;
+            right: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55px;
+            height: 55px;
+            background: rgba(11, 12, 16, 0.8);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .carousel-next-btn:hover {
+            background: var(--gold);
+            color: #0b0c10;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 768px) {
+            .hero-greeting, .hero-name {
+                font-size: 2.5rem;
+            }
+            .portfolio-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CABEÇALHO GLOBAL COM LOGÓTIPO MAIOR E MENU ATUALIZADO -->
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Pamela Javiel - Estrategista Digital" class="logo-img">
+        </a>
+        <nav class="site-nav">
+            <a href="index.html" class="active">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="projetos.html">Cases & Funil</a>
+            <a href="depoimentos.html">Depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- FLECHA DE NAVEGAÇÃO PARA A PÁGINA SOBRE -->
+    <a href="sobre.html" class="carousel-next-btn" title="Ver Página Sobre">
+        &#10095;
+    </a>
+
+    <!-- CONTEÚDO PRINCIPAL ORIGINAL -->
+    <main class="hero-container">
+        <div class="top-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <h2 class="hero-greeting">Olá</h2>
+        <h1 class="hero-name">Eu sou a Pamela</h1>
+
+        <div class="role-pill">
+            e eu sou estrategista digital
+        </div>
+
+        <div class="brands-cluster">
+            <img src="kiwify.png" alt="Kiwify" class="brand-logo kiwify-large" onerror="this.style.display='none';">
+            <img src="canva.png" alt="Canva" class="brand-logo" onerror="this.style.display='none';">
+            <img src="metaads_2.png" alt="Meta Ads" class="brand-logo" onerror="this.style.display='none';">
+            <img src="googleads.png" alt="Google Ads" class="brand-logo" onerror="this.style.display='none';">
+        </div>
+
+        <div class="middle-visual-row">
+            <img src="iconededo_2.png" alt="Ícone Dedo" class="interactive-finger" onerror="this.style.display='none';">
+        </div>
+
+        <h2 class="portfolio-title">Portfolio</h2>
+
+        <div class="year-badge">
+            2026
+        </div>
+
+        <div class="top-dots" style="margin-top: 40px;">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </main>
+
+</body>
+</html>

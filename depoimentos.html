@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pamela Javiel | Depoimentos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0b0c10;
+            --bg-card: #15141c;
+            --gold: #d4af37;
+            --gold-light: #f3e5ab;
+            --text-main: #ffffff;
+            --text-muted: #d0d0dc;
+            --border-gold: rgba(212, 175, 55, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* AURAS DE FUNDO DOURADAS */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.18) 0%, rgba(11, 12, 16, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -100px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(243, 229, 171, 0.12) 0%, rgba(11, 12, 16, 0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* COBRINHAS ESPALHADAS ATRÁS DOS CARDS (AMARELAS NORMAIS, SEM TRANSPARÊNCIA) */
+        .decor-snake {
+            position: absolute;
+            width: 280px;
+            height: auto;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+        }
+
+        .snake-1 { top: 180px; left: 8%; transform: rotate(-15deg); }
+        .snake-2 { top: 520px; right: 10%; transform: rotate(25deg); width: 320px; }
+        .snake-3 { top: 900px; left: 12%; transform: rotate(10deg); width: 300px; }
+        .snake-4 { top: 1350px; right: 8%; transform: rotate(-20deg); width: 290px; }
+
+        /* ESTRELAS DECORATIVAS NAS LATERAIS */
+        .decor-star {
+            position: absolute;
+            width: 32px;
+            height: auto;
+            pointer-events: none;
+            z-index: 5;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.6));
+            animation: pulseStar 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseStar {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .star-1 { top: 160px; left: 5%; width: 28px; animation-delay: 0s; }
+        .star-2 { top: 420px; right: 5%; width: 34px; animation-delay: 1.2s; }
+        .star-3 { top: 850px; left: 6%; width: 30px; animation-delay: 0.6s; }
+        .star-4 { top: 1280px; right: 6%; width: 28px; animation-delay: 1.8s; }
+
+        /* CABEÇALHO GLOBAL PADRONIZADO */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(11, 12, 16, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            z-index: 1000;
+        }
+
+        .logo-img {
+            height: 65px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .site-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+
+        .site-nav a:hover, .site-nav a.active {
+            color: var(--gold);
+        }
+
+        /* BOTÕES DE NAVEGAÇÃO LATERAL */
+        .carousel-nav-btn {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 55px;
+            height: 55px;
+            background: rgba(11, 12, 16, 0.8);
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .carousel-prev-btn {
+            left: 35px;
+        }
+
+        .carousel-next-btn {
+            right: 35px;
+        }
+
+        .carousel-nav-btn:hover {
+            background: var(--gold);
+            color: #0b0c10;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
+        }
+
+        /* CONTEÚDO PRINCIPAL */
+        .content-section {
+            min-height: calc(100vh - 220px);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 150px 20px 80px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-header {
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+
+        /* CARTÕES DE DEPOIMENTOS */
+        .testimonials-stack {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 16px;
+            padding: 35px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--gold);
+        }
+
+        .testimonial-quote {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        /* BLOCO INFERIOR */
+        .bottom-cta-container {
+            width: 100%;
+            background: linear-gradient(135deg, #15141c 0%, #1c1a26 100%);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 50px;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-text-side h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .cta-text-side p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .cta-qr-side {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffff;
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .qr-placeholder {
+            width: 120px;
+            height: 120px;
+            background: #0b0c10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 0.75rem;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .qr-btn {
+            margin-top: 12px;
+            background: var(--gold);
+            color: #0b0c10;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.2s;
+        }
+
+        .qr-btn:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            z-index: 2;
+            background: var(--bg-dark);
+        }
+
+        @media (max-width: 768px) {
+            .bottom-cta-container {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .cta-text-side p {
+                max-width: 100%;
+            }
+            .decor-snake {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- COBRINHAS ESPALHADAS ATRÁS DOS CARDS (AMARELAS NORMAIS) -->
+    <img src="icone_cobrinha.png" alt="" class="decor-snake snake-1" onerror="this.style.display='none';">
+    <img src="icone_cobrinha.png" alt="" class="decor-snake snake-2" onerror="this.style.display='none';">
+    <img src="icone_cobrinha.png" alt="" class="decor-snake snake-3" onerror="this.style.display='none';">
+    <img src="icone_cobrinha.png" alt="" class="decor-snake snake-4" onerror="this.style.display='none';">
+
+    <!-- ESTRELAS DECORATIVAS NAS LATERAIS -->
+    <img src="estrela.png" alt="" class="decor-star star-1" onerror="this.style.display='none';">
+    <img src="estrela.png" alt="" class="decor-star star-2" onerror="this.style.display='none';">
+    <img src="estrela.png" alt="" class="decor-star star-3" onerror="this.style.display='none';">
+    <img src="estrela.png" alt="" class="decor-star star-4" onerror="this.style.display='none';">
+
+    <!-- CABEÇALHO GLOBAL COM LOGÓTIPO -->
+    <header>
+        <a href="index.html">
+            <img src="logo.png" alt="Pamela Javiel - Estrategista Digital" class="logo-img">
+        </a>
+        <nav class="site-nav">
+            <a href="index.html">Início</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="projetos.html">Cases & Funil</a>
+            <a href="depoimentos.html" class="active">Depoimentos</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- BOTÕES DE NAVEGAÇÃO LATERAL -->
+    <a href="projetos.html" class="carousel-nav-btn carousel-prev-btn" title="Página Anterior (Cases & Funil)">&#10094;</a>
+    <a href="contacto.html" class="carousel-nav-btn carousel-next-btn" title="Próxima Página (Contacto)">&#10095;</a>
+
+    <main class="content-section">
+        <div class="section-header">
+            <h1>Depoimentos</h1>
+        </div>
+
+        <div class="testimonials-stack">
+            <!-- Depoimento 1 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    “A reestruturação completa do nosso funil de vendas e a introdução do quiz inteligente transformaram os resultados do nosso infoproduto. A Pamela Javiel uniu estratégia de tráfego e design de conversão com uma maestria impecável.”
+                </p>
+                <div class="testimonial-author">Paula Maia, Especialista em Sono Infantil, São Paulo - SP</div>
+            </div>
+
+            <!-- Depoimento 2 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    “Profissional extremamente competente e analítica. As campanhas de Meta Ads ganharam uma escala previsível e o posicionamento da marca atingiu o padrão de luxo que buscávamos no mercado digital.”
+                </p>
+                <div class="testimonial-author">Juliana Mendes, Estrategista de Lançamentos, Rio de Janeiro - RJ</div>
+            </div>
+
+            <!-- Depoimento 3 -->
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    “O trabalho de CRO e a direção criativa de ponta a ponta mudaram o jogo do nosso negócio. O atendimento e a previsibilidade de vendas superaram todas as nossas expectativas.”
+                </p>
+                <div class="testimonial-author">Carla Souza, Gestora de Negócios Digitais, Curitiba - PR</div>
+            </div>
+        </div>
+
+        <!-- BLOCO INFERIOR -->
+        <div class="bottom-cta-container">
+            <div class="cta-text-side">
+                <h2>Thank You!</h2>
+                <p>
+                    Pronta para transformar a autoridade do seu negócio e alcançar vendas previsíveis com estratégias de alta performance e design sofisticado?
+                </p>
+            </div>
+            <div class="cta-qr-side">
+                <div class="qr-placeholder">
+                    [ QR CODE ]
+                </div>
+                <a href="contacto.html" class="qr-btn">Join Us!</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        PAMELA JAVIEL © 2026 — TODOS OS DIREITOS RESERVADOS
+    </footer>
+
+</body>
+</html>
