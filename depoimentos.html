@@ -61,7 +61,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px 5%;
-            background: rgba(11, 12, 16, 0.9);
+            background: rgba(11, 12, 16, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(212, 175, 55, 0.15);
             z-index: 1000;
@@ -82,6 +82,26 @@
         }
 
         .site-nav a:hover, .site-nav a.active { color: var(--gold); }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 22px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 2px;
+            background-color: var(--gold);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
 
         .carousel-nav-btn {
             position: fixed;
@@ -143,6 +163,58 @@
         .testimonial-author { font-size: 1.05rem; font-weight: 600; color: var(--gold); }
 
         footer { text-align: center; padding: 30px; font-size: 0.82rem; color: var(--text-muted); letter-spacing: 2px; border-top: 1px solid rgba(212, 175, 55, 0.15); position: relative; z-index: 2; background: var(--bg-dark); }
+
+        .mobile-nav-bar { display: none; }
+
+        @media (max-width: 900px) {
+            .hamburger { display: flex; }
+            .carousel-prev-btn, .carousel-next-btn { display: none !important; }
+
+            .site-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75%;
+                height: 100vh;
+                background: rgba(11, 12, 16, 0.98);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                transition: right 0.4s ease;
+                border-left: 1px solid rgba(212, 175, 55, 0.2);
+                z-index: 1050;
+            }
+
+            .site-nav.active { right: 0; }
+            .site-nav a { font-size: 1rem; letter-spacing: 2px; }
+
+            .content-section { padding-top: 140px; padding-bottom: 100px; }
+            
+            .mobile-nav-bar {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                margin-top: 35px;
+                padding: 10px 0;
+                width: 100%;
+            }
+            .mobile-nav-btn {
+                background: var(--bg-card);
+                border: 1px solid var(--gold);
+                color: var(--gold);
+                padding: 12px 20px;
+                border-radius: 30px;
+                font-size: 0.85rem;
+                font-weight: 600;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                text-align: center;
+                flex: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -151,7 +223,7 @@
         <a href="index.html">
             <img src="logo.png" alt="Pamela Javiel - Estrategista Digital" class="logo-img">
         </a>
-        <nav class="site-nav">
+        <nav class="site-nav" id="siteNav">
             <a href="index.html">Início</a>
             <a href="sobre.html">Sobre</a>
             <a href="trafego-local.html">Tráfego Local</a>
@@ -159,6 +231,11 @@
             <a href="depoimentos.html" class="active">Depoimentos</a>
             <a href="contato.html">Contato</a>
         </nav>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
 
     <a href="projetos.html" class="carousel-nav-btn carousel-prev-btn" title="Página Anterior">&#10094;</a>
@@ -188,11 +265,30 @@
                 <div class="testimonial-author">Mariana Costa, Psicóloga Clínica</div>
             </div>
         </div>
+
+        <div class="mobile-nav-bar">
+            <a href="projetos.html" class="mobile-nav-btn">&#10094; Anterior</a>
+            <a href="contato.html" class="mobile-nav-btn">Próxima &#10095;</a>
+        </div>
     </main>
 
     <footer>
         PAMELA JAVIEL © 2026 — TODOS OS DIREITOS RESERVADOS
     </footer>
 
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const siteNav = document.getElementById('siteNav');
+
+        hamburgerBtn.addEventListener('click', () => {
+            siteNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.site-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                siteNav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>
