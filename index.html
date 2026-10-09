@@ -16,11 +16,7 @@
             --text-muted: #a8a8b3;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-dark);
@@ -31,7 +27,6 @@
             position: relative;
         }
 
-        /* AURA DE FUNDO DOURADA */
         body::before {
             content: '';
             position: fixed;
@@ -45,7 +40,6 @@
             pointer-events: none;
         }
 
-        /* CABEÇALHO GLOBAL */
         header {
             position: fixed;
             top: 0;
@@ -61,31 +55,22 @@
             z-index: 1000;
         }
 
-        .logo-img {
-            height: 54px; /* Logótipo maior e mais destacado */
-            object-fit: contain;
-        }
+        .logo-img { height: 54px; object-fit: contain; }
 
-        .site-nav {
-            display: flex;
-            gap: 25px;
-        }
+        .site-nav { display: flex; gap: 20px; }
 
         .site-nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.78rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             transition: color 0.3s ease;
         }
 
-        .site-nav a:hover, .site-nav a.active {
-            color: var(--gold);
-        }
+        .site-nav a:hover, .site-nav a.active { color: var(--gold); }
 
-        /* CONTAINER HERO ORIGINAL */
         .hero-container {
             max-width: 900px;
             margin: 0 auto;
@@ -98,39 +83,12 @@
             align-items: center;
         }
 
-        /* BOLINHAS DE TOPO */
-        .top-dots {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 30px;
-        }
+        .top-dots { display: flex; gap: 8px; margin-bottom: 30px; }
+        .top-dots span { width: 10px; height: 10px; border: 1px solid var(--gold); border-radius: 50%; display: inline-block; }
 
-        .top-dots span {
-            width: 10px;
-            height: 10px;
-            border: 1px solid var(--gold);
-            border-radius: 50%;
-            display: inline-block;
-        }
+        .hero-greeting { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; color: var(--text-main); margin-bottom: 10px; }
+        .hero-name { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--text-main); margin-bottom: 25px; }
 
-        /* TIPOGRAFIA CENTRAL */
-        .hero-greeting {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 400;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .hero-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 25px;
-        }
-
-        /* PÍLULA / BOTÃO DE ESTRATEGISTA DIGITAL */
         .role-pill {
             background-color: var(--gold);
             color: #0b0c10;
@@ -144,56 +102,20 @@
             box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         }
 
-        /* LOGÓTIPOS DESTAQUE DA IMAGEM ORIGINAL */
-        .brands-cluster {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
+        .brands-cluster { display: flex; align-items: center; justify-content: center; gap: 30px; margin-bottom: 35px; flex-wrap: wrap; }
+        .brand-logo { height: 32px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5)); }
+        .brand-logo.kiwify-large { height: 42px; }
 
-        .brand-logo {
-            height: 32px;
-            object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-        }
-
-        .brand-logo.kiwify-large {
-            height: 42px;
-        }
-
-        /* ÁREA INTERMEDIÁRIA COM ÍCONE DE DEDO */
-        .middle-visual-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .interactive-finger {
-            width: 60px;
-            height: auto;
-            animation: floatFinger 3s ease-in-out infinite;
-        }
+        .middle-visual-row { display: flex; align-items: center; justify-content: center; gap: 40px; margin-bottom: 40px; }
+        .interactive-finger { width: 60px; height: auto; animation: floatFinger 3s ease-in-out infinite; }
 
         @keyframes floatFinger {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
 
-        /* TÍTULO PORTFOLIO 2026 */
-        .portfolio-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--gold);
-            margin-bottom: 25px;
-        }
+        .portfolio-title { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: var(--gold); margin-bottom: 25px; }
 
-        /* PÍLULA DO ANO 2026 */
         .year-badge {
             background: transparent;
             border: 1px solid var(--gold);
@@ -203,9 +125,9 @@
             font-size: 0.85rem;
             font-weight: 600;
             letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
-        /* FLECHA ESTILO CARROSSEL PARA A PÁGINA "SOBRE" */
         .carousel-next-btn {
             position: fixed;
             right: 35px;
@@ -234,20 +156,14 @@
             box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
         }
 
-        /* RESPONSIVIDADE */
         @media (max-width: 768px) {
-            .hero-greeting, .hero-name {
-                font-size: 2.5rem;
-            }
-            .portfolio-title {
-                font-size: 2.2rem;
-            }
+            .hero-greeting, .hero-name { font-size: 2.5rem; }
+            .portfolio-title { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- CABEÇALHO GLOBAL COM LOGÓTIPO MAIOR E MENU ATUALIZADO -->
     <header>
         <a href="index.html">
             <img src="logo.png" alt="Pamela Javiel - Estrategista Digital" class="logo-img">
@@ -255,31 +171,22 @@
         <nav class="site-nav">
             <a href="index.html" class="active">Início</a>
             <a href="sobre.html">Sobre</a>
-            <a href="projetos.html">Cases & Funil</a>
+            <a href="trafego-local.html">Tráfego Local</a>
+            <a href="projetos.html">Tráfego para Infoprodutos</a>
             <a href="depoimentos.html">Depoimentos</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="contato.html">Contato</a>
         </nav>
     </header>
 
-    <!-- FLECHA DE NAVEGAÇÃO PARA A PÁGINA SOBRE -->
-    <a href="sobre.html" class="carousel-next-btn" title="Ver Página Sobre">
-        &#10095;
-    </a>
+    <a href="sobre.html" class="carousel-next-btn" title="Ver Página Sobre">&#10095;</a>
 
-    <!-- CONTEÚDO PRINCIPAL ORIGINAL -->
     <main class="hero-container">
-        <div class="top-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="top-dots"><span></span><span></span><span></span></div>
 
         <h2 class="hero-greeting">Olá</h2>
         <h1 class="hero-name">Eu sou a Pamela</h1>
 
-        <div class="role-pill">
-            e eu sou estrategista digital
-        </div>
+        <div class="role-pill">e eu sou estrategista digital</div>
 
         <div class="brands-cluster">
             <img src="kiwify.png" alt="Kiwify" class="brand-logo kiwify-large" onerror="this.style.display='none';">
@@ -293,16 +200,9 @@
         </div>
 
         <h2 class="portfolio-title">Portfolio</h2>
+        <div class="year-badge">2026</div>
 
-        <div class="year-badge">
-            2026
-        </div>
-
-        <div class="top-dots" style="margin-top: 40px;">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="top-dots" style="margin-top: 40px;"><span></span><span></span><span></span></div>
     </main>
 
 </body>

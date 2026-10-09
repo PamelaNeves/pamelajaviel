@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pamela Javiel | Case Studies & Funil</title>
+    <title>Pamela Javiel | Tráfego para Infoprodutos</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -16,11 +16,7 @@
             --border-gold: rgba(212, 175, 55, 0.35);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background-color: var(--bg-dark);
@@ -76,7 +72,7 @@
         .star-3 { top: 920px; right: 8%; width: 30px; animation-delay: 0.6s; }
         .star-4 { top: 1450px; left: 10%; width: 26px; animation-delay: 1.8s; }
         .star-5 { top: 1980px; right: 10%; width: 32px; animation-delay: 0.3s; }
-        .star-6 { top: 2520px; left: 8%; width: 28px; animation-delay: 2.2s; }
+        /* Estrela inferior removida para deixar a página limpa no rodapé */
 
         header {
             position: fixed;
@@ -93,32 +89,22 @@
             z-index: 1000;
         }
 
-        .logo-img {
-            height: 65px;
-            width: auto;
-            object-fit: contain;
-        }
+        .logo-img { height: 65px; width: auto; object-fit: contain; }
 
-        .site-nav {
-            display: flex;
-            gap: 30px;
-        }
+        .site-nav { display: flex; gap: 20px; }
 
         .site-nav a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1.2px;
             transition: color 0.3s ease;
         }
 
-        .site-nav a:hover, .site-nav a.active {
-            color: var(--gold);
-        }
+        .site-nav a:hover, .site-nav a.active { color: var(--gold); }
 
-        /* BOTÕES DE NAVEGAÇÃO LATERAL */
         .carousel-nav-btn {
             position: fixed;
             top: 50%;
@@ -139,13 +125,8 @@
             z-index: 999;
         }
 
-        .carousel-prev-btn {
-            left: 35px;
-        }
-
-        .carousel-next-btn {
-            right: 35px;
-        }
+        .carousel-prev-btn { left: 35px; }
+        .carousel-next-btn { right: 35px; }
 
         .carousel-nav-btn:hover {
             background: var(--gold);
@@ -167,169 +148,35 @@
             z-index: 2;
         }
 
-        .section-tag {
-            font-size: 0.82rem;
-            color: var(--gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+        .section-tag { font-size: 0.82rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 600; }
 
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 25px;
-            text-align: center;
-            line-height: 1.2;
-        }
+        h2 { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 700; color: #ffffff; margin-bottom: 25px; text-align: center; line-height: 1.2; }
+        h3 { font-family: 'Playfair Display', serif; color: var(--text-main); font-size: 1.6rem; margin: 45px 0 15px 0; border-left: 3px solid var(--gold); padding-left: 15px; }
+        p { font-size: 1.05rem; color: var(--text-muted); font-weight: 400; line-height: 1.8; margin-bottom: 15px; }
 
-        h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--text-main);
-            font-size: 1.6rem;
-            margin: 45px 0 15px 0;
-            border-left: 3px solid var(--gold);
-            padding-left: 15px;
-        }
+        .product-overview-card { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 20px; padding: 35px; margin-bottom: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.6); position: relative; }
+        .product-overview-card h3 { margin-top: 0; border-left: none; padding-left: 0; color: #ffffff; font-size: 1.7rem; margin-bottom: 15px; }
 
-        p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            font-weight: 400;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
+        .highlight-box { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 25px 30px; border-radius: 16px; margin: 35px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
 
-        .product-overview-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 35px;
-            margin-bottom: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.6);
-            position: relative;
-        }
+        .market-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin: 25px 0; width: 100%; }
+        @media (max-width: 768px) { .market-grid { grid-template-columns: 1fr; } }
 
-        .product-overview-card h3 {
-            margin-top: 0;
-            border-left: none;
-            padding-left: 0;
-            color: #ffffff;
-            font-size: 1.7rem;
-            margin-bottom: 15px;
-        }
+        .market-card { background: var(--bg-card); border: 1px solid var(--border-gold); padding: 30px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); transition: transform 0.3s ease; }
+        .market-card:hover { transform: translateY(-4px); border-color: var(--gold); }
+        .market-card h4 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.25rem; margin-bottom: 15px; }
 
-        .highlight-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border-gold);
-            padding: 25px 30px;
-            border-radius: 16px;
-            margin: 35px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
+        .steps-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; margin: 30px 0; width: 100%; }
+        @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
 
-        .market-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin: 25px 0;
-            width: 100%;
-        }
+        .step-card { background: var(--bg-card); border: 1px solid var(--border-gold); border-radius: 16px; padding: 25px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.4); }
+        .step-card h4 { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; margin-bottom: 15px; }
 
-        @media (max-width: 768px) {
-            .market-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        .img-frame { width: 100%; height: 300px; background: #0b0c10; border-radius: 10px; overflow: hidden; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(212, 175, 55, 0.2); }
+        .img-frame img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .placeholder-text { font-size: 0.8rem; color: var(--text-muted); }
 
-        .market-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-gold);
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            transition: transform 0.3s ease;
-        }
-
-        .market-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--gold);
-        }
-
-        .market-card h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.25rem;
-            margin-bottom: 15px;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-            margin: 30px 0;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .steps-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .step-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-gold);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        .step-card h4 {
-            font-family: 'Playfair Display', serif;
-            color: var(--gold);
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .img-frame {
-            width: 100%;
-            height: 300px;
-            background: #0b0c10;
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .img-frame img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .placeholder-text {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            border-top: 1px solid rgba(212, 175, 55, 0.15);
-            position: relative;
-            z-index: 2;
-            background: var(--bg-dark);
-        }
+        footer { text-align: center; padding: 30px; font-size: 0.82rem; color: var(--text-muted); letter-spacing: 2px; border-top: 1px solid rgba(212, 175, 55, 0.15); position: relative; z-index: 2; background: var(--bg-dark); }
     </style>
 </head>
 <body>
@@ -339,9 +186,7 @@
     <img src="estrela.png" alt="" class="decor-star star-3" onerror="this.style.display='none';">
     <img src="estrela.png" alt="" class="decor-star star-4" onerror="this.style.display='none';">
     <img src="estrela.png" alt="" class="decor-star star-5" onerror="this.style.display='none';">
-    <img src="estrela.png" alt="" class="decor-star star-6" onerror="this.style.display='none';">
 
-    <!-- CABEÇALHO GLOBAL COM MENU ATUALIZADO -->
     <header>
         <a href="index.html">
             <img src="logo.png" alt="Pamela Javiel - Estrategista Digital" class="logo-img">
@@ -349,44 +194,41 @@
         <nav class="site-nav">
             <a href="index.html">Início</a>
             <a href="sobre.html">Sobre</a>
-            <a href="projetos.html" class="active">Cases & Funil</a>
+            <a href="trafego-local.html">Tráfego Local</a>
+            <a href="projetos.html" class="active">Tráfego para Infoprodutos</a>
             <a href="depoimentos.html">Depoimentos</a>
-            <a href="contacto.html">Contacto</a>
+            <a href="contato.html">Contato</a>
         </nav>
     </header>
 
-    <!-- BOTÕES DE NAVEGAÇÃO LATERAL -->
-    <a href="sobre.html" class="carousel-nav-btn carousel-prev-btn" title="Página Anterior (Sobre)">&#10094;</a>
+    <a href="trafego-local.html" class="carousel-nav-btn carousel-prev-btn" title="Página Anterior (Tráfego Local)">&#10094;</a>
     <a href="depoimentos.html" class="carousel-nav-btn carousel-next-btn" title="Próxima Página (Depoimentos)">&#10095;</a>
 
     <main class="content-section">
         <div style="width: 100%;">
             <div style="text-align: center;">
                 <div class="section-tag">Estudo de Caso de Alta Performance</div>
-                <h2>Otimização de Funil: Do Quiz ao Checkout</h2>
+                <h2>Tráfego para Infoprodutos</h2>
             </div>
             
             <div class="product-overview-card" style="margin-top: 35px;">
                 <h3>O Produto: Curso de Sono Infantil (Especialista Paula Maia)</h3>
                 <p>
-                    Este projeto consistiu na reestruturação completa da estratégia digital para o curso da especialista em sono infantil <strong>Paula Maia</strong>. O infoproduto foi desenvolvido com um propósito transformador: ajudar mães exaustas a ensinarem os seus bebês a dormirem no berço com tranquilidade, eliminando a dependência exaustiva do colo e do peito durante a noite.
-                </p>
-                <p style="margin-bottom: 0;">
-                    O grande desafio estratégico não era apenas vender o curso, mas traduzir a empatia, o acolhimento e a autoridade da Paula Maia logo no primeiro contacto, simplificando uma jornada que antes sofria com barreiras técnicas e baixa conversão.
+                    Este projeto consistiu na reestruturação completa da estratégia digital para o curso da especialista em sono infantil <strong>Paula Maia</strong>. O infoproduto foi desenvolvido com um propósito transformador: ajudar mães exaustas a ensinarem os seus bebês a dormirem no berço com tranquilidade.
                 </p>
             </div>
 
             <h3>🎯 1. Estudo de Persona & Análise de Mercado</h3>
-            <p>Antes de estruturar qualquer campanha ou fluxo no site, foi realizada uma análise profunda do comportamento do público no exigente nicho de maternidade e sono infantil.</p>
+            <p>Antes de estruturar qualquer campanha ou fluxo no site, foi realizada uma análise profunda do comportamento do público no exigente nicho de maternidade e infoprodutos.</p>
             
             <div class="market-grid">
                 <div class="market-card">
-                    <h4>👥 A Persona (Quem é ela?)</h4>
-                    <p style="font-size: 0.95rem;">Mães de primeira viagem ou com bebês pequenos, esgotadas pelas noites mal dormidas, que já tentaram de tudo e sentem culpa por não conseguirem fazer o filho adormecer no berço sem apoio.</p>
+                    <h4>👥 A Persona</h4>
+                    <p style="font-size: 0.95rem;">Mães de primeira viagem esgotadas pelas noites mal dormidas, que procuram soluções práticas e acolhedoras.</p>
                 </div>
                 <div class="market-card">
                     <h4>📊 Análise de Mercado</h4>
-                    <p style="font-size: 0.95rem;">O mercado tradicional focava em páginas de texto longas e exaustivas. Identificamos que a audiência precisava de acolhimento imediato, agilidade e respostas diretas.</p>
+                    <p style="font-size: 0.95rem;">Substituição de páginas longas por jornadas interativas e ágeis que geram conexão imediata com a leitora.</p>
                 </div>
             </div>
 
@@ -394,56 +236,27 @@
             <p>Substituímos a página de vendas estática por uma jornada interativa em formato de quiz personalizado. A utilizadora responde a perguntas rápidas sobre a rotina e recebe um diagnóstico sob medida antes de visualizar a oferta.</p>
 
             <div class="highlight-box">
-                <p><strong>O Impacto no Negócio:</strong> Eliminamos todos os atritos de um site desatualizado, transformando a navegação numa experiência leve, fluida e altamente persuasiva para fechar a conversão.</p>
+                <p><strong>O Impacto no Negócio:</strong> Eliminamos todos os atritos de navegação, transformando a experiência num fluxo leve, fluido e altamente persuasivo para fechar a conversão.</p>
             </div>
 
             <h3>📱 Os 4 Passos da Nova Jornada</h3>
-
             <div class="steps-grid">
                 <div class="step-card">
                     <h4>1. Dor & Promessa</h4>
-                    <div class="img-frame">
-                        <img src="passo1.png" alt="Passo 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="placeholder-text" style="display:none;">passo1.png</div>
-                    </div>
+                    <div class="img-frame"><img src="passo1.png" alt="Passo 1" onerror="this.style.display='none';"></div>
                 </div>
                 <div class="step-card">
                     <h4>2. Idade do Bebê</h4>
-                    <div class="img-frame">
-                        <img src="passo2.png" alt="Passo 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="placeholder-text" style="display:none;">passo2.png</div>
-                    </div>
+                    <div class="img-frame"><img src="passo2.png" alt="Passo 2" onerror="this.style.display='none';"></div>
                 </div>
                 <div class="step-card">
                     <h4>3. Padrão de Sono</h4>
-                    <div class="img-frame">
-                        <img src="passo3.png" alt="Passo 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="placeholder-text" style="display:none;">passo3.png</div>
-                    </div>
+                    <div class="img-frame"><img src="passo3.png" alt="Passo 3" onerror="this.style.display='none';"></div>
                 </div>
                 <div class="step-card">
                     <h4>4. Diagnóstico & Oferta</h4>
-                    <div class="img-frame">
-                        <img src="passo4.png" alt="Passo 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                        <div class="placeholder-text" style="display:none;">passo4.png</div>
-                    </div>
+                    <div class="img-frame"><img src="passo4.png" alt="Passo 4" onerror="this.style.display='none';"></div>
                 </div>
-            </div>
-
-            <h3>💳 Checkout Inteligente</h3>
-            <p>O formulário de pagamento antigo foi reestruturado num checkout limpo e otimizado, destacando o valor e o elemento visual humanizado para gerar confiança instantânea.</p>
-
-            <div class="img-frame" style="height: 380px; margin-top: 20px;">
-                <img src="print-checkout.png" alt="Checkout Inteligente" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="placeholder-text" style="display:none;">print-checkout.png</div>
-            </div>
-
-            <h3>🎬 Área de Membros (Experiência Netflix)</h3>
-            <p>Para elevar o valor percebido do produto, estruturamos a área de alunos com uma estética de plataforma de streaming, garantindo uma entrega impecável.</p>
-
-            <div class="img-frame" style="height: 380px; margin-top: 20px;">
-                <img src="print-membros.png" alt="Área de Membros" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div class="placeholder-text" style="display:none;">print-membros.png</div>
             </div>
         </div>
     </main>
