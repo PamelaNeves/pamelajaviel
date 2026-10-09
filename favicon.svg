@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <!-- Fundo escuro arredondado -->
+    <rect width="64" height="64" rx="14" fill="#0b0c10"/>
+    <!-- Borda dourada subtil -->
+    <rect x="2" y="2" width="60" height="60" rx="12" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.4"/>
+    <!-- Barras do gráfico em dourado -->
+    <rect x="14" y="36" width="8" height="16" rx="2" fill="#d4af37"/>
+    <rect x="28" y="24" width="8" height="28" rx="2" fill="#d4af37"/>
+    <rect x="42" y="14" width="8" height="38" rx="2" fill="#f3e5ab"/>
+</svg>
